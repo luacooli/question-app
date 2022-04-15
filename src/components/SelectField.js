@@ -6,18 +6,20 @@ const SelectField = props => {
 
 	const [value, setValue] = useState("");
 
-	const handlerChange = () => {};
+	const handlerChange = e => {
+		setValue(e.target.value);
+	};
 
 	return (
 		<Box mt={3} width="100%">
 			<FormControl size="small" fullWidth>
 				<InputLabel>{label}</InputLabel>
 				<Select value={value} label={label} onChange={handlerChange}>
-					{options.map(({ id, name }) => {
+					{options.map(({ id, name }) => (
 						<MenuItem value={id} key={id}>
 							{name}
-						</MenuItem>;
-					})}
+						</MenuItem>
+					))}
 				</Select>
 			</FormControl>
 		</Box>

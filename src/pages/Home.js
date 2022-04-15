@@ -16,7 +16,7 @@ const Home = () => {
 		);
 	}
 
-	if (loading) {
+	if (error) {
 		return (
 			<Typography variant="h6" mt={20} color="red">
 				Some went wrong!
