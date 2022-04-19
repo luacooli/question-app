@@ -14,15 +14,15 @@ const Score = () => {
 		navigate("/");
 	};
 	return (
-		<Box mt={30}>
-			<Typography variant="h3" fontWeight="bold" mb={3}>
+		<div id="score">
+			<h2 className="page-title">
 				Final Score: {score}
-			</Typography>
+			</h2>
 
-			<Button onClick={handlerBackHome} variant="outlined">
+			<button className="outline-button" onClick={handlerBackHome}>
 				Back to Home
-			</Button>
-		</Box>
+			</button>
+		</div>
 	);
 };
 

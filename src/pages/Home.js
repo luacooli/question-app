@@ -45,7 +45,7 @@ const Home = () => {
 
 	return (
 		<div id="home">
-			<h2 className="home-title">Quizz App</h2>
+			<h2 className="page-title">Quizz App</h2>
 
 			<form onSubmit={handlerSubmit}>
 				{/* <SelectField options={response.trivia_categories} label="Category" />
