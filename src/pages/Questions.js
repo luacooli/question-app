@@ -72,23 +72,21 @@ const Questions = () => {
 	};
 
 	return (
-		<Box>
-			<Typography variant="h4">Question {questionIndex + 1}</Typography>
-			<Typography mt={5}>
-				{decode(response.results[questionIndex].question)}
-			</Typography>
+		<div id="questions">
+			<h3 className="question-title">Question {questionIndex + 1}</h3>
+			<h4 className="question-item">{decode(response.results[questionIndex].question)}</h4>
 
 			{options.map((data, id) => (
-				<Box mt={2} key={id}>
-					<Button onClick={handlerAnswer} variant="contained">
+				<div className="answer__container">
+					<button onClick={handlerAnswer} className="fill-button">
 						{decode(data)}
-					</Button>
-				</Box>
+					</button>
+				</div>
 			))}
-			<Box mt={5}>
+			<div className="score">
 				Score: {score} / {response.results.length}
-			</Box>
-		</Box>
+			</div>
+		</div>
 	);
 };
 

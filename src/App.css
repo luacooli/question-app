@@ -39,3 +39,39 @@ html,
 	height: 8rem;
 	width: 8rem;
 }
+
+#questions {
+  padding: 5rem;
+
+  display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#questions .question-title {
+  color: #095a1d;
+  font-size: 2rem;
+}
+
+#questions .question-item {
+  font-size: 1rem;
+}
+
+#questions .answer__container {
+  margin: 1rem;
+}
+
+.fill-button {
+  background: #095a1d;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  padding: 1rem 2rem;
+}
+
+.score {
+  color: #b67b0d;
+  margin: 2rem 0;
+}
