@@ -12,18 +12,13 @@ const getRandomInt = max => {
 };
 
 const Questions = () => {
-	const {
-		question_category,
-		question_difficuty,
-		question_type,
-		amount_of_question,
-		score,
-	} = useSelector(state => state);
+	const { question_category, question_difficuty, question_type, score } =
+		useSelector(state => state);
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 
-	let apiUrl = `/api.php?amount=${10}`;
+	let apiUrl = `/api.php?amount=10`;
 
 	if (question_category) {
 		apiUrl = apiUrl.concat(`&category=${question_category}`);
@@ -65,7 +60,7 @@ const Questions = () => {
 	const handlerAnswer = e => {
 		const question = response.results[questionIndex];
 
-		if (e.targe.textContent === question.correct_answer) {
+		if (e.target.textContent === question.correct_answer) {
 			dispatch(handlerScoreChange(score + 1));
 		}
 
@@ -83,14 +78,13 @@ const Questions = () => {
 				{decode(response.results[questionIndex].question)}
 			</Typography>
 
-			{options.map((data, id) => {
+			{options.map((data, id) => (
 				<Box mt={2} key={id}>
 					<Button onClick={handlerAnswer} variant="contained">
 						{decode(data)}
 					</Button>
-				</Box>;
-			})}
-
+				</Box>
+			))}
 			<Box mt={5}>
 				Score: {score} / {response.results.length}
 			</Box>
