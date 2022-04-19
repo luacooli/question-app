@@ -44,21 +44,19 @@ const Home = () => {
 	};
 
 	return (
-		<div>
-			<Typography variant="h2" fontWeight="bold">
-				Quizz App
-			</Typography>
+		<div id="home">
+			<h2 className="home-title">Quizz App</h2>
 
 			<form onSubmit={handlerSubmit}>
-				<SelectField options={response.trivia_categories} label="Category" />
+				{/* <SelectField options={response.trivia_categories} label="Category" />
 				<SelectField options={difficultyOptions} label="Difficulty" />
-				<SelectField options={typeOptions} label="Type" />
+				<SelectField options={typeOptions} label="Type" /> */}
 
-				<Box mt={3} width="100%">
-					<Button fullWidth variant="contained" type="submit">
+				<div className="button-container">
+					<button className="start-button" type="submit">
 						Get Started!
-					</Button>
-				</Box>
+					</button>
+				</div>
 			</form>
 		</div>
 	);

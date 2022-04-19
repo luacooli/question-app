@@ -1,0 +1,41 @@
+* {
+	box-sizing: border-box;
+	font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body,
+html,
+#root,
+#app {
+	height: 100%;
+	margin: 0;
+}
+
+#home {
+	height: 100%;
+	padding: 5rem 0;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#home .home-title {
+  color: #095a1d;
+	font-size: 4rem;
+}
+
+.button-container {
+	width: 100%;
+}
+
+.start-button {
+	background: #3cbe7d;
+	border: 0px solid #03290d;
+	border-radius: 50%;
+	color: #095a1d;
+	cursor: pointer;
+	height: 8rem;
+	width: 8rem;
+}
