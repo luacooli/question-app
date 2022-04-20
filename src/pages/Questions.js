@@ -13,8 +13,7 @@ const getRandomInt = max => {
 };
 
 const Questions = () => {
-	const { question_category, question_difficuty, question_type, score } =
-		useSelector(state => state);
+	const { score } = useSelector(state => state);
 
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
