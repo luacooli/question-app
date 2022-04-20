@@ -3,6 +3,7 @@ import {
 	CHANGE_DIFFICULTY,
 	CHANGE_SCORE,
 	CHANGE_TYPE,
+	CHANGE_MODAL,
 } from "./actionsTypes";
 
 const initialState = {
@@ -11,6 +12,8 @@ const initialState = {
 	question_type: "",
 	amount_of_question: 50,
 	score: 0,
+	isOpen: false,
+	userName: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -37,6 +40,12 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				score: action.payload,
+			};
+
+		case CHANGE_MODAL:
+			return {
+				...state,
+				isOpen: action.payload,
 			};
 
 		default:

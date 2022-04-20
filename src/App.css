@@ -28,6 +28,8 @@ html,
 
 .button-container {
 	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .start-button {
@@ -98,10 +100,10 @@ html,
 }
 
 .modal {
+	background: #00000059;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background: #00000059;
 
 	display: flex;
 	align-items: center;
@@ -109,17 +111,24 @@ html,
 }
 
 .modal-container {
-  background: white;
+	background: white;
   border-radius: 8px;
   height: 50%;
   max-width: 50rem;
   max-height: 30rem;
   padding: 1rem;
+	position: relative;
   width: 70%;
 
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr 6fr 1fr;
+}
+
+.modal .close-icon {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
 }
 
 .modal-header {

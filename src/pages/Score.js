@@ -6,7 +6,7 @@ import { handlerScoreChange } from "../redux/actions";
 const Score = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
-	const { score } = useSelector(state => state);
+	const { score, userName } = useSelector(state => state);
 
 	const handlerBackHome = () => {
 		dispatch(handlerScoreChange(0));
@@ -17,6 +17,8 @@ const Score = () => {
 			<h2 className="page-title">
 				Final Score: {score}
 			</h2>
+
+			<p>Thanks for playing, {userName}!</p>
 
 			<button className="outline-button" onClick={handlerBackHome}>
 				Back to Home

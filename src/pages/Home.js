@@ -1,13 +1,14 @@
 import { Box } from "@mui/system";
-import { Button, CircularProgress, Typography } from "@mui/material";
-
+import { CircularProgress, Typography } from "@mui/material";
 import Modal from "./../components/Modal";
+
 import useAxios from "../hooks/useAxios";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const Home = () => {
 	const { response, error, loading } = useAxios({ url: "/api_category.php" });
-	const navigate = useNavigate();
+
+	const [openModal, setOpenModal] = useState(false);
 
 	if (loading) {
 		return (
@@ -25,24 +26,23 @@ const Home = () => {
 		);
 	}
 
-	const handlerSubmit = e => {
-		e.preventDefault();
-
-		navigate("/questions");
-	};
-
 	return (
 		<div id="home">
-			<Modal title="Digite seu nome" isText={false} />
+			{openModal && (
+				<Modal
+					title="Digite seu nome"
+					isText={false}
+					closeModal={setOpenModal}
+				/>
+			)}
+
 			<h2 className="page-title">Quizz App</h2>
 
-			<form onSubmit={handlerSubmit}>
-				<div className="button-container">
-					<button className="start-button" type="submit">
-						Get Started!
-					</button>
-				</div>
-			</form>
+			<div className="button-container">
+				<button className="start-button" onClick={() => setOpenModal(true)}>
+					Get Started!
+				</button>
+			</div>
 		</div>
 	);
 };
