@@ -1,17 +1,24 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { handlerInputChange } from "../redux/actions";
+import { handlerInputChange, handlerResetQuizz } from "../redux/actions";
 
 const Modal = props => {
 	const { title, content, isText, closeModal } = props;
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
-	let button;
+	let leftButton;
+	let rightButton;
 	let modalContent;
 
 	const handlerInput = e => {
 		dispatch(handlerInputChange(e.target.value));
+	};
+
+	const resetQuizz = () => {
+		dispatch(handlerResetQuizz(true));
+
+		navigate("/");
 	};
 
 	if (!isText) {
@@ -27,14 +34,31 @@ const Modal = props => {
 			</div>
 		);
 
-		button = (
+		leftButton = (
+			<button className="outline-button-gray" onClick={() => closeModal(false)}>
+				Fechar
+			</button>
+		);
+		rightButton = (
 			<button className="fill-button" onClick={() => navigate("/questions")}>
 				Começar!
 			</button>
 		);
 	} else {
 		modalContent = content;
-		button = <button className="fill-button">Pronto!</button>;
+		leftButton = (
+			<button
+				className="outline-button-gray"
+				onClick={() => navigate("/score")}
+			>
+				Abandonar partida
+			</button>
+		);
+		rightButton = (
+			<button className="fill-button" onClick={resetQuizz}>
+				Reiniciar!
+			</button>
+		);
 	}
 
 	return (
@@ -53,13 +77,8 @@ const Modal = props => {
 
 				<div className="modal-footer">
 					<div className="button-container">
-						<button
-							className="outline-button-gray"
-							onClick={() => closeModal(false)}
-						>
-							Fechar
-						</button>
-						{button}
+						{leftButton}
+						{rightButton}
 					</div>
 				</div>
 			</div>

@@ -1,39 +1,20 @@
 import {
-	CHANGE_CATEGORY,
-	CHANGE_DIFFICULTY,
 	CHANGE_SCORE,
-	CHANGE_TYPE,
-	CHANGE_MODAL,
+	CHANGE_NAME,
+	RESET_QUIZZ,
 } from "./actionsTypes";
 
 const initialState = {
-	question_category: "",
-	question_difficuty: "",
-	question_type: "",
-	amount_of_question: 50,
 	score: 0,
-	isOpen: false,
 	userName: "",
 };
 
 const reducer = (state = initialState, action) => {
 	switch (action.type) {
-		case CHANGE_CATEGORY:
+		case CHANGE_NAME:
 			return {
 				...state,
-				question_category: action.payload,
-			};
-
-		case CHANGE_DIFFICULTY:
-			return {
-				...state,
-				question_difficuty: action.payload,
-			};
-
-		case CHANGE_TYPE:
-			return {
-				...state,
-				question_type: action.payload,
+				userName: action.payload,
 			};
 
 		case CHANGE_SCORE:
@@ -42,11 +23,8 @@ const reducer = (state = initialState, action) => {
 				score: action.payload,
 			};
 
-		case CHANGE_MODAL:
-			return {
-				...state,
-				isOpen: action.payload,
-			};
+		case RESET_QUIZZ:
+			return state;
 
 		default:
 			return state;

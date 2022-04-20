@@ -1,4 +1,5 @@
-import { Box, Button, CircularProgress, Typography } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
+import Modal from "./../components/Modal";
 
 import useAxios from "../hooks/useAxios";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,26 +21,16 @@ const Questions = () => {
 
 	let apiUrl = `/api.php?amount=10`;
 
-	if (question_category) {
-		apiUrl = apiUrl.concat(`&category=${question_category}`);
-	}
-
-	if (question_difficuty) {
-		apiUrl = apiUrl.concat(`&difficulty=${question_difficuty}`);
-	}
-
-	if (question_type) {
-		apiUrl = apiUrl.concat(`&type=${question_type}`);
-	}
-
 	const { response, loading } = useAxios({ url: apiUrl });
 	const [questionIndex, setQuestionIndex] = useState(0);
 	const [options, setOptions] = useState([]);
+	const [openModal, setOpenModal] = useState(false);
 
 	useEffect(() => {
 		if (response?.results.length) {
 			const question = response.results[questionIndex];
 			let answers = [...question.incorrect_answers];
+
 			answers.splice(
 				getRandomInt(question.incorrect_answers.length),
 				0,
@@ -62,6 +53,8 @@ const Questions = () => {
 
 		if (e.target.textContent === question.correct_answer) {
 			dispatch(handlerScoreChange(score + 1));
+		} else {
+			setOpenModal(true);
 		}
 
 		if (questionIndex + 1 < response.results.length) {
@@ -73,11 +66,22 @@ const Questions = () => {
 
 	return (
 		<div id="questions">
+			{openModal && (
+				<Modal
+					title="Puts, não foi dessa vez!"
+					isText={true}
+					content="Você selecionou a resposta incorreta, reinicie sua partida e tente novamente!"
+					closeModal={setOpenModal}
+				/>
+			)}
+
 			<h3 className="question-title">Question {questionIndex + 1}</h3>
-			<h4 className="question-item">{decode(response.results[questionIndex].question)}</h4>
+			<h4 className="question-item">
+				{decode(response.results[questionIndex].question)}
+			</h4>
 
 			{options.map((data, id) => (
-				<div className="answer__container">
+				<div className="answer__container" key={id}>
 					<button onClick={handlerAnswer} className="fill-button">
 						{decode(data)}
 					</button>
