@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handlerScoreChange } from "../redux/actions";
 
+import "./Score.css";
+
 const Score = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();

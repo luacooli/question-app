@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { decode } from "html-entities";
 import { handlerScoreChange } from "../redux/actions";
 
+import "./Questions.css";
+
 const getRandomInt = max => {
 	return Math.floor(Math.random() * Math.floor(max));
 };

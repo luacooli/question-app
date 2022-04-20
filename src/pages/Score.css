@@ -1,0 +1,9 @@
+#score {
+	height: 100%;
+	padding: 5rem;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}

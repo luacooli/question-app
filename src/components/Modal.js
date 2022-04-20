@@ -2,6 +2,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handlerInputChange, handlerResetQuizz } from "../redux/actions";
 
+import "./Modal.css";
+
 const Modal = props => {
 	const { title, content, isText, closeModal } = props;
 	const dispatch = useDispatch();

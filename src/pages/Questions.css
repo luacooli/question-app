@@ -1,0 +1,19 @@
+#questions {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#questions .question-item {
+	font-size: 1rem;
+}
+
+#questions .answer__container {
+	margin: 1rem;
+}
+
+.score {
+	color: #b67b0d;
+	margin: 2rem 0;
+}

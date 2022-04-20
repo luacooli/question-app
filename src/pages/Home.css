@@ -1,0 +1,25 @@
+#home {
+	height: 100%;
+	padding: 5rem 0;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.button-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.start-button {
+	background: #3cbe7d;
+	border: 0px solid #03290d;
+	border-radius: 50%;
+	color: #095a1d;
+	cursor: pointer;
+	height: 8rem;
+	width: 8rem;
+}

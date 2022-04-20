@@ -5,6 +5,8 @@ import Modal from "./../components/Modal";
 import useAxios from "../hooks/useAxios";
 import { useState } from "react";
 
+import "./Home.css";
+
 const Home = () => {
 	const { response, error, loading } = useAxios({ url: "/api_category.php" });
 
