@@ -116,6 +116,10 @@ html,
   max-height: 30rem;
   padding: 1rem;
   width: 70%;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 6fr 1fr;
 }
 
 .modal-header {
@@ -144,4 +148,26 @@ html,
   display: flex;
   align-self: flex-end;
   justify-content: center;
+}
+
+.modal .modal-content {
+	align-self: center;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.input-container > label {
+	margin: 0.4rem 0;
+	font-size: 0.8rem;
+}
+
+.input-container > input {
+	width: 100%;
+	padding: 0.2rem;
+	border: none;
+	border-bottom: 1px solid #095a1d;
 }

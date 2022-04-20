@@ -1,5 +1,5 @@
 import {
-	CHANGE_AMOUNT,
+	CHANGE_NAME,
 	CHANGE_CATEGORY,
 	CHANGE_DIFFICULTY,
 	CHANGE_SCORE,
@@ -16,8 +16,8 @@ export const handlerDifficultyChange = payload => ({
 	payload,
 });
 
-export const handlerAmountChange = payload => ({
-	type: CHANGE_AMOUNT,
+export const handlerInputChange = payload => ({
+	type: CHANGE_NAME,
 	payload,
 });
 

@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { handlerAmountChange, handlerScoreChange } from "../redux/actions";
+import { handlerScoreChange } from "../redux/actions";
 
 const Score = () => {
 	const dispatch = useDispatch();
@@ -10,7 +10,6 @@ const Score = () => {
 
 	const handlerBackHome = () => {
 		dispatch(handlerScoreChange(0));
-		dispatch(handlerAmountChange(10));
 		navigate("/");
 	};
 	return (

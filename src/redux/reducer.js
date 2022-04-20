@@ -1,5 +1,4 @@
 import {
-	CHANGE_AMOUNT,
 	CHANGE_CATEGORY,
 	CHANGE_DIFFICULTY,
 	CHANGE_SCORE,
@@ -32,12 +31,6 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				question_type: action.payload,
-			};
-
-		case CHANGE_AMOUNT:
-			return {
-				...state,
-				amount_of_question: action.payload,
 			};
 
 		case CHANGE_SCORE:
